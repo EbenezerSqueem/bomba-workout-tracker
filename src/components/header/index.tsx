@@ -12,7 +12,7 @@ export const Header: FunctionComponent<HeaderProps> = ({
 }: HeaderProps) => {
   return (
     <View style={styles.headerContainer}>
-      <Text>{title} | Bomba Tracker</Text>
+      <Text style={styles.title}>{title} | Bomba Tracker</Text>
     </View>
   );
 };

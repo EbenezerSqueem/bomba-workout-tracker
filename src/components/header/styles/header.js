@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     height: 100,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: 'white',
   },

@@ -22,12 +22,14 @@ export const LandingScreen: FunctionComponent<Props> = ({
 }: Props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bomba Workout Tracker</Text>
+      <Text style={styles.title}>Bomba Workout</Text>
       <Text style={styles.subTitle}>
         Track all of your workouts from weight lifting to sports tracking.
       </Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text>GET TRACKING</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+        style={styles.button}>
+        <Text style={styles.buttonText}>GET TRACKING</Text>
       </TouchableOpacity>
     </View>
   );
@@ -36,11 +38,27 @@ export const LandingScreen: FunctionComponent<Props> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 25,
   },
   title: {
     fontSize: 48,
+    alignItems: 'center',
   },
   subTitle: {
-    fontSize: 32,
+    fontSize: 18,
+    marginVertical: 10,
+  },
+  button: {
+    backgroundColor: 'blue',
+    width: '75%',
+    borderRadius: 10,
+    alignItems: 'center',
+    padding: 10,
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'white',
   },
 });
