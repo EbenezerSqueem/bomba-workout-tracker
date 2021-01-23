@@ -22,7 +22,7 @@ export const LandingScreen: FunctionComponent<Props> = ({
 }: Props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bomba Workout</Text>
+      <Text style={styles.title}>Bomba Workouts</Text>
       <Text style={styles.subTitle}>
         Track all of your workouts from weight lifting to sports tracking.
       </Text>
@@ -41,17 +41,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 25,
+    backgroundColor: '#118AB2',
   },
   title: {
     fontSize: 48,
     alignItems: 'center',
+    color: '#231F20',
   },
   subTitle: {
     fontSize: 18,
-    marginVertical: 10,
+    marginVertical: 25,
+    marginHorizontal: 20,
+    color: '#231F20',
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: '#231F20',
     width: '75%',
     borderRadius: 10,
     alignItems: 'center',
@@ -59,6 +63,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#118AB2',
   },
 });

@@ -3,37 +3,26 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 import {RootStackParamList} from '../types/navigationProps';
-import {Header, Carousel} from '../components';
+import {Header} from '../components';
 
-interface HomeProps {
+type WorkoutProps = {
   username?: string;
-  navigation: HomeScreenNavigationProp;
-}
+  navigation: RecentScreenNavigationProp;
+};
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
-
+type RecentScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Recent'
+>;
 // TODO: add navigation for ability to go back a page
-export const HomeScreen: FunctionComponent<HomeProps> = ({
-  username,
+export const RecentWorkoutScreen: FunctionComponent<WorkoutProps> = ({
   navigation,
-}: HomeProps) => {
+}: WorkoutProps) => {
   return (
     <>
-      <Header title={'Home'} />
+      <Header title={'Recent'} />
       <View style={styles.container}>
-        <Text>Hello, {username}</Text>
-        <Carousel>
-          <Carousel.Title
-            onPressFunc={() => {
-              console.log('Triggered');
-              navigation.navigate('Recent');
-            }}>
-            RECENT WORKOUTS
-          </Carousel.Title>
-        </Carousel>
-        <Carousel>
-          <Carousel.Title>SAVED WORKOUTS</Carousel.Title>
-        </Carousel>
+        <Text>YO</Text>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.button}>
@@ -42,10 +31,6 @@ export const HomeScreen: FunctionComponent<HomeProps> = ({
       </View>
     </>
   );
-};
-
-HomeScreen.defaultProps = {
-  username: 'Guest',
 };
 
 const styles = StyleSheet.create({
