@@ -5,6 +5,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../types/navigationProps';
 import {Header, Carousel} from '../components';
 
+import {exampleRecentWorkouts, exampleSavedWorkouts} from '../../_mocks_/data';
+
 interface HomeProps {
   username?: string;
   navigation: HomeScreenNavigationProp;
@@ -23,16 +25,16 @@ export const HomeScreen: FunctionComponent<HomeProps> = ({
       <View style={styles.container}>
         <Text>Hello, {username}</Text>
         <Carousel>
-          <Carousel.Title
-            onPressFunc={() => {
-              console.log('Triggered');
-              navigation.navigate('Recent');
-            }}>
+          <Carousel.Title navigation={navigation} route={'Recent'}>
             RECENT WORKOUTS
           </Carousel.Title>
+          <Carousel.CardList list={exampleRecentWorkouts} />
         </Carousel>
         <Carousel>
-          <Carousel.Title>SAVED WORKOUTS</Carousel.Title>
+          <Carousel.Title navigation={navigation} route={'Saved'}>
+            SAVED WORKOUTS
+          </Carousel.Title>
+          <Carousel.CardList list={exampleSavedWorkouts} />
         </Carousel>
         <TouchableOpacity
           onPress={() => navigation.goBack()}

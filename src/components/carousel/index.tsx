@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {} from 'react-native-gesture-handler';
 
 import {CarouselStyles} from './styles/carousel';
 
@@ -14,11 +14,16 @@ export default function Carousel({children, ...restProps}: any) {
 
 Carousel.Title = function CarouselTitle({
   children,
-  onPressFunc,
+  navigation,
+  route,
   ...restProps
 }: any) {
   return (
-    <TouchableOpacity onPress={() => onPressFunc} {...restProps}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(route);
+      }}
+      {...restProps}>
       <Text style={CarouselStyles.title}>{children}</Text>
     </TouchableOpacity>
   );
@@ -32,6 +37,25 @@ Carousel.Subtitle = function CarouselSubtitle({children, ...restProps}: any) {
   );
 };
 
-Carousel.CardList = function CarouselCardList({children, ...restProps}: any) {
-  return <Text {...restProps}>{children}</Text>;
+Carousel.CardList = function CarouselCardList({list}: any) {
+  return (
+    <FlatList
+      data={Object.entries(list)}
+      renderItem={renderCard}
+      style={CarouselStyles.listContainer}
+      horizontal={true}
+      keyExtractor={(item) => {
+        return item[0];
+      }}
+    />
+  );
+};
+
+// todo make type recentworkout and import it here
+const renderCard = ({item}: any) => {
+  return (
+    <View style={CarouselStyles.cardContainer}>
+      <Text style={CarouselStyles.workoutName}>{item[1].name}</Text>
+    </View>
+  );
 };
